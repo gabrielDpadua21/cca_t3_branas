@@ -24,7 +24,7 @@ describe('Test cpf validations', () => {
     })
     
     
-    test('should receive cpf with first digite valid', () => {
+    test('should receive cpf with first digit valid', () => {
         const cpf = new Cpf();
         expect(cpf.validateFirstDigite('40819992879')).toBeTruthy();
     });
