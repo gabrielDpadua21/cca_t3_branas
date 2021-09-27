@@ -45,6 +45,17 @@ describe('Test cpf', () => {
     test('should receice a valid cpf', () => {
         const cpf = new Cpf();
         expect(cpf.isValid('935.411.347-80')).toBeTruthy();
-    })    
+    })
+
+    test('should receive a invalid cpf with all digits equal', () => {
+        const cpf = new Cpf();
+        expect(cpf.isValid('123.456.789-99')).toBeFalsy();
+    })
+
+    test('should receive a invalid cpf with undefined', () => {
+        const cpf = new Cpf();
+        expect(cpf.isValid("olamundo458.062.070-48")).toBeFalsy();
+    })
+    
 })
 
