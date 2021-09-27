@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest --no-cache --verbose"
+    "test": "jest --no-cache --verbose",
+    "coverage": "jest --coverage"
   },
   "license": "MIT",
   "devDependencies": {
