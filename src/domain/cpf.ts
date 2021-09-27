@@ -23,7 +23,8 @@ export default class Cpf {
     }
 
     validateIfAllEquals(cpf: string): boolean {
-        return !cpf.split('').every(digit => digit === cpf[0]);
+        const [firstDigit] = cpf;
+        return ![...cpf].every(digit => digit === firstDigit);
     }
 
     validateFirstDigite(cpf: string): boolean {
@@ -39,7 +40,7 @@ export default class Cpf {
     }
 
     validateDigit(cpf: string): number {
-        const digitsSum = cpf.split('')
+        const digitsSum = [...cpf]
             .map((value, index, array) => parseInt(value) * (array.length - index + 1))
             .reduce((preview, next) => {
                     return preview + next
