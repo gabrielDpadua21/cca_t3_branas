@@ -1,61 +1,39 @@
-import Cpf from '@/domain/cpf';
+import Cpf from '../Cpf';
 
-
-describe('Test cpf validations', () => {
-    
-    test('Should recive a valide size cpf', () => {
-        const cpf = new Cpf();
-        expect(cpf.sizeValidate('40819992879')).toBeTruthy();
+describe('Test Cpf', () => {
+    test('Should validate Cpf', () => {
+        const cpf = new Cpf('935.411.347-80');
+        expect(cpf.validate()).toBeTruthy();
     });
 
-    test('should recive a not valide size cpf', () => {
-        const cpf = new Cpf();
-        expect(cpf.sizeValidate('408199928')).toBeFalsy();
-    })
-    
-    test('should not receive letters in cpf', () => {
-        const cpf = new Cpf();
-        expect(cpf.verifyLetters('408199928A')).toBeFalsy();
-    })
-
-    test('should return false when all digits are equal', () => {
-        const cpf = new Cpf();
-        expect(cpf.validateIfAllEquals('11111111111')).toBeFalsy();
-    })
-    
-    
-    test('should receive cpf with first digit valid', () => {
-        const cpf = new Cpf();
-        expect(cpf.validateFirstDigite('40819992879')).toBeTruthy();
+    test('Should try validate invalid cpf', () => {
+        const cpf = new Cpf('123.456.789-99');
+        expect(cpf.validate()).toBeFalsy();
     });
 
-    test('should receive cpf with second digit valide', () => {
-        const cpf = new Cpf();
-        expect(cpf.validateSecondDigite('40819992879')).toBeTruthy();
+    test('Should try validate Cpf with all digits equals', () => {
+        const cpf = new Cpf('111.111.111-11');
+        expect(cpf.validate()).toBeFalsy();
     });
-})
 
+    test('Should try validate Cpf bigger than 11 chars', () => {
+        const cpf = new Cpf('935.411.347-8000');
+        expect(cpf.validate()).toBeFalsy();
+    });
 
-describe('Test cpf', () => {
-    test('should receice a invalid cpf', () => {
-        const cpf = new Cpf();
-        expect(cpf.isValid('111.111.111-11')).toBeFalsy();
-    })
+    test('Should try validate Cpf small than 11 chars', () => {
+        const cpf = new Cpf('935.411.3');
+        expect(cpf.validate()).toBeFalsy();
+    });
 
-    test('should receice a valid cpf', () => {
-        const cpf = new Cpf();
-        expect(cpf.isValid('935.411.347-80')).toBeTruthy();
-    })
+    test('Should try validate Cpf null', () => {
+        const cpf = new Cpf(null);
+        expect(cpf.validate()).toBeFalsy();
+    });
 
-    test('should receive a invalid cpf with all digits equal', () => {
-        const cpf = new Cpf();
-        expect(cpf.isValid('123.456.789-99')).toBeFalsy();
-    })
-
-    test('should receive a invalid cpf with undefined', () => {
-        const cpf = new Cpf();
-        expect(cpf.isValid("olamundo458.062.070-48")).toBeFalsy();
-    })
-    
-})
+    test('Should try validate Cpf undefined', () => {
+        const cpf = new Cpf(undefined);
+        expect(cpf.validate()).toBeFalsy();
+    }); 
+});
 
