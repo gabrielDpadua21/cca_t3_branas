@@ -5,12 +5,12 @@ export default class Cpf {
     private cpf: string;
     
     constructor(cpf: string) {
-        if(!this.validate(cpf)) throw new Error("Invalid cpf");
+        if(!this.validate(cpf)) throw new Error('Invalid cpf');
         this.cpf = cpf;
     }
 
     validate(cpf: string) {
-        if(!this.cpf) return false;
+        if(!cpf) return false;
         const cleanCpf = this.clean(cpf);
         if(!this.isValidLength(cleanCpf)) return false;
         if(this.allDigitsEquals(cleanCpf)) return false;
@@ -26,12 +26,12 @@ export default class Cpf {
     }
 
     isValidLength(cpf: string) {
-        return this.cpf.length === this.CPF_VALID_LENGTH;
+        return cpf.length === this.CPF_VALID_LENGTH;
     }
 
     allDigitsEquals(cpf: string) {
-        const [firstDigit] = this.cpf;
-        return [...this.cpf].every((digit: string) => digit === firstDigit)
+        const [firstDigit] = cpf;
+        return [...cpf].every((digit: string) => digit === firstDigit)
     }
 
     calculateDigit(cpf: string, factor: number) {
