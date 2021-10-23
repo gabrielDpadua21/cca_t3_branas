@@ -1,6 +1,8 @@
-import Order from "./Order";
-import ItemRepository from "./ItemRepository";
-import OrderRepository from "./OrderRepository";
+
+import ItemRepository from "@/domain/repository/ItemRepository";
+import OrderRepository from "@/domain/repository/OrderRepository";
+import Order from "../../domain/entity/Order";
+import PlaceOrderInput from "../dto/PlaceOrderInput";
 
 export default class PlaceOrder {
     constructor(
@@ -8,7 +10,7 @@ export default class PlaceOrder {
         readonly orderRepository: OrderRepository
     ) {}
 
-    async execute(input: any): Promise<any> {
+    async execute(input: PlaceOrderInput): Promise<any> {
         const order = new Order(input.cpf);
         for (const orderItem of input.orderItems) {
             const item = await this.itemRepository.findById(orderItem.idItem);

@@ -1,7 +1,7 @@
+import OrderItem from '@/domain/entity/OrderItem';
 import Cpf from './Cpf';
 import Cupom from './Cupom';
 import Item from './Item';
-import OrderItem from './OrderItem';
 
 export default class Order {
     private cpf: Cpf;

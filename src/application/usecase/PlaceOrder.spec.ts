@@ -1,6 +1,7 @@
-import PlaceOrder from './PlaceOrder';
-import ItemRepositoryMemory from './ItemRepositoryMemory';
-import OrderRepositoryMemory from './OrderRepositoryMemory';
+
+import ItemRepositoryMemory from "@/infra/repository/memory/ItemRepositoryMemory";
+import OrderRepositoryMemory from "@/infra/repository/memory/OrderRepositoryMemory";
+import PlaceOrder from "./PlaceOrder";
 
 describe('Test Place Order', () => {
     test('Should make a order', async () => {
