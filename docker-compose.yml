@@ -10,4 +10,12 @@ services:
           POSTGRES_PASSWORD: Toor@1234
           POSTGRES_DB: ccat3
         volumes:
-         - ./volumes/postgres:/data/postgres
+         - postgres-ccat3:/var/lib/postgresql/data
+
+    adminer:
+        image: adminer
+        ports:
+         - 8080:8080
+
+volumes:
+    postgres-ccat3:
