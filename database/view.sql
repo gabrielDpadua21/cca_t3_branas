@@ -1,0 +1,1 @@
+create table ccca.order_view ( code text primary key, data jsonb);
