@@ -5,7 +5,7 @@ export default class DatabaseConnectionAdpter implements DatabaseConnection {
     pgPromise: any;
     
     constructor() {
-        this.pgPromise = pgPromise()('')
+        this.pgPromise = pgPromise()('postgres://root:Toor@1234@localhost:5432/ccat3')
     }
     
     query(statement: string, params: any) {
