@@ -1,6 +1,8 @@
 
 import ItemRepositoryMemory from "@/infra/repository/memory/ItemRepositoryMemory";
+import ItemRepositoryDatabase from "@/infra/repository/database/ItemRepositoryDatabase";
 import OrderRepositoryMemory from "@/infra/repository/memory/OrderRepositoryMemory";
+import DatabaseConnectionAdpter from "@/infra/database/DatabaseConnectionAdpter"; 
 import PlaceOrderInput from "../dto/PlaceOrderInput";
 import PlaceOrder from "./PlaceOrder";
 
@@ -28,9 +30,9 @@ describe('Test Place Order', () => {
     })
 
     test('Should make a order', async () => {
-        const placeOrder = new PlaceOrder(new ItemRepositoryMemory, new OrderRepositoryMemory);
+        const placeOrder = new PlaceOrder(new ItemRepositoryDatabase(new DatabaseConnectionAdpter), new OrderRepositoryMemory);
         const output = await placeOrder.execute(input);
-        expect(output.total).toBe(21500);
+        expect(output.total).toBe(6030);
     });
 
 });
