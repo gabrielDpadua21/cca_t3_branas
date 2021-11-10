@@ -11,8 +11,8 @@ export default class ItemRepositoryDatabase implements ItemRepository {
     ) {}
     
     async findById(idItem: number): Promise<Item> {
-       const [itemData] = await this.databaseConnection.query('select * from ccca_item where id_item = $1', [idItem]);
-       return new Item(itemData.id_item, itemData.category, itemData.description, itemData.price);
+       const [itemData] = await this.databaseConnection.query('select * from ccca_item where item_id = $1', [idItem]);
+       return new Item(itemData.item_id, itemData.category, itemData.description, itemData.price);
     }
 
 }
