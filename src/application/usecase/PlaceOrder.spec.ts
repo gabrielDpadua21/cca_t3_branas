@@ -1,11 +1,14 @@
 
 import ItemRepositoryMemory from "@/infra/repository/memory/ItemRepositoryMemory";
 import OrderRepositoryMemory from "@/infra/repository/memory/OrderRepositoryMemory";
+import PlaceOrderInput from "../dto/PlaceOrderInput";
 import PlaceOrder from "./PlaceOrder";
 
 describe('Test Place Order', () => {
-    test('Should make a order', async () => {
-        const input = {
+    let input: PlaceOrderInput;
+    
+    beforeEach(() => {
+        input = {
             cpf: '935.411.347-80',
             orderItems: [
                 {
@@ -22,7 +25,9 @@ describe('Test Place Order', () => {
                 },
             ]
         }
+    })
 
+    test('Should make a order', async () => {
         const placeOrder = new PlaceOrder(new ItemRepositoryMemory, new OrderRepositoryMemory);
         const output = await placeOrder.execute(input);
         expect(output.total).toBe(21500);
