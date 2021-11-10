@@ -3,6 +3,10 @@
 ### Projeto do curso Clean Code e Clean Architecture
 
 ---
+<div align="center">
+ <img src="./images/logo.jpg" />
+</div>
+---
 
 ### Ministrado por Rodrigo Branas
 
@@ -12,10 +16,10 @@
 
 ### Técnologias utilizadas
 
-<img src="https://img.icons8.com/color/48/000000/typescript.png" alt="javascript" style="zoom: 150%;" />
-
-<img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="javascript" style="zoom:150%;" />
-
+<div align="center">
+  <img src="https://img.icons8.com/color/48/000000/typescript.png" alt="javascript" style="zoom: 150%;" />
+  <img src="https://img.icons8.com/color/48/000000/javascript--v1.png" alt="javascript" style="zoom:150%;" />
+</div>
 ---
 
 ### License
